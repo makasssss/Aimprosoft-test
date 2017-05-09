@@ -1,0 +1,45 @@
+<form (submit)="reset()">
+ 	<div class="rows">
+		<div class="mail">
+			<input class="email" type='email' name="email" placeholder="E-mail" required pattern="^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$" [(ngModel)]="user.email"  #email = "ngModel">
+			<div class="tick">
+				<div [hidden]="email.valid || email.untouched">
+            		<div class="error">
+            			<img src="../img/close.png">
+            		</div>
+        		</div>
+        		<div [hidden]="email.invalid" class="valid">
+            		<div class="ok">
+            			<img src="../img/tick.png">
+            		</div>
+        		</div>
+			</div>
+			<div [hidden]="email.valid || email.untouched" class="error_text">
+				Invalid Email
+			</div>	
+		</div>
+		<div class="pas">
+			<input class="password" type="password" name="password" placeholder="Password" required pattern="^[\w_]{6,18}$" [(ngModel)]="user.password"  #password="ngModel">
+			<div class="tick">
+				<div [hidden]="password.valid || password.untouched">
+            		<div class="error">
+            			<img src="../img/close.png">
+            		</div>
+            	</div>
+            	<div [hidden]="password.invalid" class="valid">
+            		<div class="ok">
+            			<img src="../img/tick.png">
+            		</div>
+        		</div>
+			</div>
+			<div [hidden]="password.valid || password.untouched" class="error_text">
+				Invalid Password
+			</div>
+		</div>	
+	</div>	
+	<button type="submit">Login</button>
+	<div class="text">
+		Forgot your password?
+		<a href="#">Reset it here.</a>
+	</div>
+</form>
